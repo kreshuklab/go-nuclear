@@ -1,0 +1,7 @@
+generic_plant_nuclei_3D:
+  url_weights: https://zenodo.org/records/8432366/files/stardist_weights.h5
+  url_rdf: https://zenodo.org/records/8432366/files/rdf.yaml
+  resolution: [0.2837 0.1268 0.1268]
+  description: 'A generic 3D StarDist trained to predict the nuclei in plant. Voxel size: (0.1268×0.1268×0.2837 µm^3) (XYZ)'
+  dimensionality: '3D'
+  modality: 'confocal'

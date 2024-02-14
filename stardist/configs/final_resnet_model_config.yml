@@ -1,0 +1,52 @@
+wandb:
+  project: stardist-limit
+  name: stardist 96x96x96 one 1135
+
+data:
+  # Rescale outside StarDist
+  rescale_factor: Null
+
+  # Training
+  training:
+    - /g/kreshuk/yu/datasets/FOR2581/diploid/omni/1136.h5
+    - /g/kreshuk/yu/datasets/FOR2581/diploid/omni/1137.h5
+    - /g/kreshuk/yu/datasets/FOR2581/diploid/omni/1139.h5
+    - /g/kreshuk/yu/datasets/FOR2581/diploid/omni/1170.h5
+  validation:
+    - /g/kreshuk/yu/datasets/FOR2581/diploid/omni/1135.h5
+  raw_name: raw/noisy
+  label_name: label/gold
+
+  # Inference
+  prediction:
+    - /g/kreshuk/yu/datasets/FOR2581/diploid/raw_noisy/1135.raw.nuclei.tif
+    - /g/kreshuk/yu/datasets/FOR2581/diploid/raw_noisy/1136.raw.nuclei.tif
+    - /g/kreshuk/yu/datasets/FOR2581/diploid/raw_noisy/1137.raw.nuclei.tif
+    - /g/kreshuk/yu/datasets/FOR2581/diploid/raw_noisy/1139.raw.nuclei.tif
+    - /g/kreshuk/yu/datasets/FOR2581/diploid/raw_noisy/1170.raw.nuclei.tif
+  format: tiff # only 'hdf5' or 'tiff'
+  name: raw/nuclei # dataset name of the raw image in HDF5 files, only required if format is `hdf5`
+  output_dir: /g/kreshuk/yu/datasets/FOR2581/diploid/raw_noisy/stardist_resnet_96_grid244_one/
+  output_dtype: uint16 # `uint8`, `uint16`, or `float32` are recommended
+  resize_to_original: True # output should be of he same shape as input
+  target_voxel_size: Null # the desired voxel size to rescale to during inference, null if rescale factor is set
+  save_probability_map: True
+
+stardist:
+  model_dir: /g/kreshuk/yu/datasets/FOR2581/diploid/models/stardist_limit/
+  model_name: stardist_resnet_96_grid244_one
+  model_type: StarDist3D
+  model_config:
+    backbone: resnet
+    n_rays: 96
+    grid: [2, 4, 4]
+    use_gpu: False
+    n_channel_in: 1
+    patch_size: [96, 96, 96] # multiple of 16 prefered
+    train_batch_size: 8
+    train_n_val_patches: 16
+    steps_per_epoch: 400
+    epochs: 1000
+
+augmenter:
+  name: default

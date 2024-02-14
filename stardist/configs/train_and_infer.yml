@@ -1,0 +1,65 @@
+wandb: # optional, keep this part only if using W&B and only for training
+  project: ovules-instance-segmentation
+  name: my-stardist-model
+
+data:
+  ### PREPROCESSING ###
+  # recommended to rescale to 0.26 x 0.12x 0.12 um in ZXY for pretrained models
+  rescale_factor: Null
+
+  ### TRAINING ###
+  # (ignored in inference config file)
+  # training data path(s), can be HDF5 file(s) or folder(s)
+  training:
+    - /home/user/data1/ or /home/user/training/data1.h5
+    - /home/user/data2/ or /home/user/training/data2.h5
+  # validation data path(s), can be HDF5 file(s) or folder(s)
+  validation:
+    - /home/user/data3/ or /home/user/training/data3.h5
+  # the HDF5 dataset name for raw input
+  raw_name: raw/noisy
+  # the HDF5 dataset name for annotation
+  label_name: label/gold
+
+  ### Inference ###
+  # (ignored in training config file)
+  # user data path(s), can be TIFF or HDF5 file(s) or folder(s)
+  prediction:
+    - /home/user/data4/ or /home/user/testing/data1.tif
+    - /home/user/data5/ or /home/user/testing/data2.tif
+  # input file format, in which segmentations will also be saved, either 'hdf5' or 'tiff'
+  format: tiff
+  # dataset name of the raw image in HDF5 files, required if format is `hdf5`
+  name: raw/nuclei
+  # folder in which probability maps and segmentations will be saved
+  output_dir: /home/user/stardist_segmentation/
+  # data type in which segmentations will be saved, use `uint8`, `uint16`, or `float32` for Fiji visualisation
+  output_dtype: uint16
+  # if True, output will be of he same shape as input
+  resize_to_original: True
+  # the desired voxel size to rescale to during inference, null if `rescale_factor` is set, deprecated
+  target_voxel_size: Null
+  # if True, probability maps will be saved whose size depends on `grid`
+  save_probability_map: True
+
+# For training, refer to https://github.com/stardist/stardist to understand the `model_config``
+# Inference and training share the same StarDist model configuration below.
+# Training and prediction configs are put together to maintain consistency.
+stardist:
+  model_dir: Null
+  model_name: generic_plant_nuclei_3D # `generic_plant_nuclei_3D` is the default builtin model
+  model_type: StarDist3D
+  model_config: # model configuration should stay identical for training and inference
+    backbone: resnet
+    n_rays: 96
+    grid: [2, 4, 4]
+    use_gpu: False
+    n_channel_in: 1
+    patch_size: [96, 96, 96] # multiple of 16 prefered
+    train_batch_size: 8
+    train_n_val_patches: 16
+    steps_per_epoch: 400
+    epochs: 1000
+
+augmenter: # Use `default`` to restrict rotation in 2D, otherwise `augmenter_isotropic_3d`
+  name: default

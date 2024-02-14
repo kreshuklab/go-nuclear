@@ -1,0 +1,30 @@
+package:
+  name: 'run-stardist'
+  version: '0.0.2'
+
+source:
+  path: ..
+
+build:
+  noarch: python
+  script: 'pip install . --no-deps --ignore-installed --no-cache-dir'
+  number: 1
+  entry_points:
+    - train-stardist = runstardist.train:main
+    - predict-stardist = runstardist.predict:main
+
+requirements:
+  build:
+    - python
+    - pip
+  run:
+    - python>=3.10 # for `|` in pydantic
+    # - tensorflow
+    - stardist
+    - wandb
+    - pydantic<2 # v2 not compatible at all
+
+about:
+  home: https://github.com/qin-yu/ovules-instance-segmentation/
+  license: BSD
+  license_family: BSD

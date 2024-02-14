@@ -1,0 +1,10 @@
+name: stardist
+channels:
+  - conda-forge
+  - default
+dependencies:
+  - python>=3.10 # for `|` in pydantic
+  - tensorflow-gpu
+  - stardist
+  - wandb
+  - pydantic==1.* # v2 not compatible at all
