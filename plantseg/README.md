@@ -12,34 +12,43 @@
 
 
 ## Installation
+
 It is recommended to install this package with `mamba` (see below). If you don't have `mamba` installed, you can install it with `conda`. We start the guide by installing Mini-`conda`.
 
 ### Install Miniconda
+
 First step required to use the pipeline is installing Miniconda. If you already have a working Anaconda setup you can go directly to the next step. Anaconda can be downloaded for all platforms from [here](https://www.anaconda.com/products/distribution). We suggest to use Miniconda, because it is lighter and install fewer unnecessary packages.
 
 To download Miniconda, open a terminal and type:
+
 ```bash
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 ```
 
 Then install by typing:
+
 ```bash
 bash ./Miniconda3-latest-Linux-x86_64.sh
 ```
+
 and follow the installation instructions. The Miniconda3-latest-Linux-x86_64.sh file can be safely deleted.
 
 ### Install `plant-seg` using `mamba`
+
 Fist step is to install mamba, which is an alternative to conda:
+
 ```bash
 conda install -c conda-forge mamba
 ```
 
 PlantSeg version >= v1.6.2 is required. If you have a nvidia gpu, install `plant-seg` using:
+
 ```bash
 mamba create -n plant-seg -c pytorch -c nvidia -c conda-forge pytorch pytorch-cuda=12.1 pyqt lcerrone::plantseg
 ```
 
 or if you don't have a nvidia gpu, install `plant-seg` using:
+
 ```bash
 mamba create -n plant-seg -c pytorch -c nvidia -c conda-forge pytorch cpuonly pyqt lcerrone::plantseg
 ```
@@ -47,6 +56,7 @@ mamba create -n plant-seg -c pytorch -c nvidia -c conda-forge pytorch cpuonly py
 ## Inference
 
 ### Example configuration file for both training and inference
+
 The original configuration file used for training the final UNet PlantSeg model published on Bioimage.IO for wide applicability can be found at `plantseg/configs/config_train_final.yml`, which is a configuration file for [pytorch-3dunet](https://github.com/wolny/pytorch-3dunet), the core network of PlantSeg.
 
 An example config file for segmentation can be found at `plantseg/configs/config_pred_wide_applicability.yaml`. To modify it and use it for your own data, you need to change the `path` parameters:
@@ -59,6 +69,7 @@ You may also need to change these parameters:
 - `cnn_prediction:patch`: patch size should be smaller than the dimension of your image, and smaller than the GPU memory
 
 The full configuration file is shown below:
+
 ```yaml
 # Contains the path to the directory or file to process
 path: PATH_TO_YOUR_DATA
@@ -175,26 +186,44 @@ segmentation_postprocessing:
 ```
 
 ### Prediction
+
 ```shell
 plantseg --config CONFIG_PATH
 ```
+
 where CONFIG_PATH is the path to the YAML configuration file. For example, if you want to use the model with the example configuration file `configs/config_pred_wide_applicability.yaml`:
+
 ```shell
 cd ovules-instance-segmentation/plantseg/
 CUDA_VISIBLE_DEVICES=0 plantseg --config configs/train_and_infer.yml
 ```
 
 ### Specifying a Graphic Card (GPU)
+
 If you need to specify a graphic card, for example to use the No. 7 card (the eighth), do:
+
 ```shell
 CUDA_VISIBLE_DEVICES=7 plantseg --config CONFIG_PATH
 ```
+
 If you have only one graphic card, use `CUDA_VISIBLE_DEVICES=0` to select the first card (No. 0).
 
 ## Cite
+
 If you find this work useful, please cite both papers:
-```
-TODO
+
+```bibtex
+@article {Vijayan2024.02.19.580954,
+  author = {Athul Vijayan and Tejasvinee Atul Mody and Qin Yu and Adrian Wolny and Lorenzo Cerrone and Soeren Strauss and Miltos Tsiantis and Richard S. Smith and Fred Hamprecht and Anna Kreshuk and Kay Schneitz},
+  title = {A deep learning-based toolkit for 3D nuclei segmentation and quantitative analysis in cellular and tissue context},
+  elocation-id = {2024.02.19.580954},
+  year = {2024},
+  doi = {10.1101/2024.02.19.580954},
+  publisher = {Cold Spring Harbor Laboratory},
+  URL = {https://www.biorxiv.org/content/early/2024/02/21/2024.02.19.580954},
+  eprint = {https://www.biorxiv.org/content/early/2024/02/21/2024.02.19.580954.full.pdf},
+  journal = {bioRxiv}
+}
 
 @article{wolny2020accurate,
   title={Accurate and versatile 3D segmentation of plant tissues at cellular resolution},
@@ -208,4 +237,5 @@ TODO
 ```
 
 ## PlantSeg Version and Code
+
 See [PlantSeg's website](https://github.com/hci-unihd/plant-seg) for more details. The PlantSeg version v1.4.3 was used for testing, and PlantSeg v1.6.2 was released for this paper.

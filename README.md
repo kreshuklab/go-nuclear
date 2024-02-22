@@ -1,12 +1,14 @@
 # Plant Nuclei Segmentation Pipelines <!-- omit in toc -->
 
-This repository hosts the code and guides for the pipelines used in the paper _TODO_. It is structured in to four folders:
+This repository hosts the code and guides for the pipelines used in the paper [_A deep learning-based toolkit for 3D nuclei segmentation and quantitative analysis in cellular and tissue context_](https://www.biorxiv.org/content/10.1101/2024.02.19.580954v1). It is structured in to four folders:
+
 - **stardist/** contains a 3D StarDist training and inference pipeline, `run-stardist`.
 - **plantseg/** contains configuration files for training and inference with PlantSeg.
 - **cellpose/** contains scripts for training and inference with Cellpose.
 - **evaluation/** contains modules for evaluating the segmentation results.
 
 ## Table of Contents <!-- omit in toc -->
+
 - [Tools and Workflows](#tools-and-workflows)
   - [StarDist](#stardist)
   - [PlantSeg](#plantseg)
@@ -20,6 +22,7 @@ This repository hosts the code and guides for the pipelines used in the paper _T
 ## Tools and Workflows
 
 ### StarDist
+
 *See [`run-stardist`'s README.md](stardist/README.md) for more details.*
 
 This is one of the most important contribution of this repository. If your nuclei are more or less uniform in shape, please consider using the `run-stardist` pipeline in this repository. It generate separate and round instance segmentation masks for your nuclei images.
@@ -31,6 +34,7 @@ This is one of the most important contribution of this repository. If your nucle
 ![stardist_raw_and_segmentation](https://zenodo.org/records/8432366/files/stardist_raw_and_segmentation.jpg)
 
 ### PlantSeg
+
 *See [PlantSeg's README.md](plantseg/README.md) for more details.*
 
 If your nuclei have irregular shapes, please consider using the PlantSeg pipeline. It generates instance masks for your nuclei images regardless of their nucleus size and shape.
@@ -42,6 +46,7 @@ If your nuclei have irregular shapes, please consider using the PlantSeg pipelin
 ![plantseg_raw_and_gasp_segmentation](https://zenodo.org/records/10070349/files/plantseg_raw_and_gasp_segmentation.jpg)
 
 ### Cellpose
+
 *See [Cellpose's README.md](cellpose/README.md) for more details.*
 
 - The guide for running Cellpose inference and training is in the `cellpose/` folder
@@ -49,6 +54,7 @@ If your nuclei have irregular shapes, please consider using the PlantSeg pipelin
 ## Data
 
 ### Training Data
+
 The training data is publicly available on Zenodo at `[TODO](to be published after paper submission)`.
 
 An example of the raw image:
@@ -56,6 +62,7 @@ An example of the raw image:
 ![raw](https://zenodo.org/records/10070349/files/plantseg_raw.jpg)
 
 Some key information about the training data is listed below:
+
 ```python
 original_voxel_size = {  # z, y, x
     1135: [0.28371836501901143, 0.12678642066720086, 0.12678642066720086],  # validation
@@ -82,7 +89,19 @@ original_median_extents = {  # z, y, x
 Both HDF5 files and TIFF files can be directly used for both `run-stardist` and `plant-seg` inference. Go to the respective folders's README.md for more details.
 
 ## Cite
+
 If you find this work useful, please cite our paper and the respective tools' papers:
-```
-TODO
+
+```bibtex
+@article {Vijayan2024.02.19.580954,
+  author = {Athul Vijayan and Tejasvinee Atul Mody and Qin Yu and Adrian Wolny and Lorenzo Cerrone and Soeren Strauss and Miltos Tsiantis and Richard S. Smith and Fred Hamprecht and Anna Kreshuk and Kay Schneitz},
+  title = {A deep learning-based toolkit for 3D nuclei segmentation and quantitative analysis in cellular and tissue context},
+  elocation-id = {2024.02.19.580954},
+  year = {2024},
+  doi = {10.1101/2024.02.19.580954},
+  publisher = {Cold Spring Harbor Laboratory},
+  URL = {https://www.biorxiv.org/content/early/2024/02/21/2024.02.19.580954},
+  eprint = {https://www.biorxiv.org/content/early/2024/02/21/2024.02.19.580954.full.pdf},
+  journal = {bioRxiv}
+}
 ```
