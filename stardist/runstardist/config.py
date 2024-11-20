@@ -1,7 +1,7 @@
 import logging
 from pathlib import Path
 
-from pydantic import BaseModel, Field, validator  # pylint: disable=no-name-in-module
+from pydantic.v1 import BaseModel, Field, validator  # pylint: disable=no-name-in-module
 from stardist import gputools_available
 
 from runstardist.utils import check_models, load_config
