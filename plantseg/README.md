@@ -10,7 +10,6 @@
 - [Cite](#cite)
 - [PlantSeg Version and Code](#plantseg-version-and-code)
 
-
 ## Installation
 
 It is recommended to install this package with `mamba` (see below). If you don't have `mamba` installed, you can install it with `conda`. We start the guide by installing Mini-`conda`.
@@ -109,7 +108,7 @@ cnn_prediction:
   # channel to use if input image has shape CZYX or CYX, otherwise set to null; null is recommended if the previous steps has state True
   channel: Null
   # Trained model name, more info on available models and custom models in the README
-  model_name: 'generic_plant_nuclei_3D'
+  model_name: 'PlantSeg_3Dnuc_platinum'
   # If a CUDA capable gpu is available and corrected setup use "cuda", if not you can use "cpu" for cpu only inference (slower)
   device: 'cuda'
   # (int or tuple) padding to be removed from each axis in a given patch in order to avoid checkerboard artifacts
