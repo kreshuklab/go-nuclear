@@ -7,9 +7,9 @@ setup(
     version=__version__,  # pylint: disable=undefined-variable
     author='Qin Yu',
     author_email='qin.yu@embl.de',
-    license='bsd-3-clause',
+    license='MIT',
     description='Train and use StarDist models',
-    url='https://github.com/qin-yu/ovules-instance-segmentation',
+    url='https://github.com/kreshuklab/go-nuclear',
     packages=find_packages(),
     entry_points={
         'console_scripts': [
