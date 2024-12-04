@@ -105,7 +105,7 @@ class ConfigStarDist3D(BaseModel):
 
 
 class ConfigPredStarDist3D(BaseModel):
-    model_dir: Path | None
+    model_dir: Path | None = None
     model_name: str
     model_type: str = 'StarDist3D'
 
