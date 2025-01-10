@@ -13,13 +13,13 @@ A 3D nucleus segmentation model is available for download from Bioimage.IO and r
 
 ### Use Pre-trained Model
 
-Model weights and related files can be found at: <https://zenodo.org/doi/10.5281/zenodo.8421755>. The programme downloads the model automatically for you to make inference on your images as long as you specify `generic_plant_nuclei_3D` as the `model_name` in the configuration file.
+Model weights and related files can be found at [DOI 10.5281/zenodo.8421755](https://zenodo.org/doi/10.5281/zenodo.8421755). The programme downloads the model automatically for you to make inference on your images as long as you specify `generic_plant_nuclei_3D` as the `model_name` in the configuration file.
 
 This is the only 3D StarDist model available on Bioimage Model Zoo at the moment. If you have another model, put its folder in your `PATH_TO_MODEL_DIR` and specify the folder name as `MY_MODEL_NAME` in the configuration file (see below). Then you can run `predict-stardist` to use the model for inference. For more information on inference, see [Prediction](#prediction) section below.
 
 ### Training data statistics and links
 
-The training data is publicly available on Zenodo at `[TODO](to be published after paper submission)`. Some key information about the training data is listed below:
+The training data is publicly available on Zenodo at [BioImage Archive S-BIAD1026](https://www.ebi.ac.uk/biostudies/BioImages/studies/S-BIAD1026). Some key information about the training data is listed below:
 
 ```python
 original_voxel_size = {  # z, y, x

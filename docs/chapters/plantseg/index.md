@@ -97,7 +97,7 @@ cnn_prediction:
   key: Null
   # channel to use if input image has shape CZYX or CYX, otherwise set to null; null is recommended if the previous steps has state True
   channel: Null
-  # Trained model name, more info on available models and custom models in the README
+  # Trained model name, more info on available models and custom models in PlantSeg documentation
   model_name: 'PlantSeg_3Dnuc_platinum'
   # If a CUDA capable gpu is available and corrected setup use "cuda", if not you can use "cpu" for cpu only inference (slower)
   device: 'cuda'

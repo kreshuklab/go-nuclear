@@ -1,17 +1,19 @@
-# Plant Nuclei Segmentation Pipelines <!-- omit in toc -->
+# Nuclear Segmentation Pipelines <!-- omit in toc -->
 
-This repository hosts the code and guides for the pipelines used in the paper [_A deep learning-based toolkit for 3D nuclei segmentation and quantitative analysis in cellular and tissue context_](https://doi.org/10.1242/dev.202800). It is structured in to four folders:
+The GoNuclear repository hosts the code and guides for the pipelines used in the paper [_A deep learning-based toolkit for 3D nuclei segmentation and quantitative analysis in cellular and tissue context_](https://doi.org/10.1242/dev.202800). It is structured in to four folders:
 
 - **stardist/** contains a 3D StarDist training and inference pipeline, `run-stardist`.
 - **plantseg/** contains configuration files for training and inference with PlantSeg.
 - **cellpose/** contains scripts for training and inference with Cellpose.
 - **evaluation/** contains modules for evaluating the segmentation results.
 
+and are described in this documentation.
+
 ## Tools and Workflows
 
 ### StarDist
 
-_See [`run-stardist`'s README.md](stardist/README.md) for more details._
+_See [GoNuclear Documentation - `run-stardist`](chapters/stardist/index.md) for more details._
 
 This is one of the most important contribution of this repository. If your nuclei are more or less uniform in shape, please consider using the `run-stardist` pipeline in this repository. It generate separate and round instance segmentation masks for your nuclei images.
 
@@ -23,7 +25,7 @@ This is one of the most important contribution of this repository. If your nucle
 
 ### PlantSeg
 
-_See [PlantSeg's README.md](plantseg/README.md) for more details._
+_See [GoNuclear Documentation - PlantSeg](chapters/plantseg/index.md) for more details._
 
 If your nuclei have irregular shapes, please consider using the PlantSeg pipeline. It generates instance masks for your nuclei images regardless of their nucleus size and shape.
 
@@ -35,7 +37,7 @@ If your nuclei have irregular shapes, please consider using the PlantSeg pipelin
 
 ### Cellpose
 
-_See [Cellpose's README.md](cellpose/README.md) for more details._
+_See [GoNuclear Documentation - Cellpose](chapters/cellpose/index.md) for more details._
 
 - The guide for running Cellpose inference and training is in the `cellpose/` folder
 
@@ -43,7 +45,7 @@ _See [Cellpose's README.md](cellpose/README.md) for more details._
 
 ### Training Data
 
-The training data is publicly available on [BioImage Archive](https://www.ebi.ac.uk/biostudies/BioImages/studies/S-BIAD1026).
+The training data is publicly available on [BioImage Archive S-BIAD1026](https://www.ebi.ac.uk/biostudies/BioImages/studies/S-BIAD1026).
 
 An example of the raw image:
 
@@ -70,11 +72,11 @@ original_median_extents = {  # z, y, x
 }  # [16, 32, 32] is taken as the median
 ```
 
-**Note for training Cellpose:** The best image form for training StarDist and PlantSeg models are the original forms, i.e. the linked dataset is the one that provide the best results. However, to train Cellpose which only takes 2D training data, the images are prepared to be 2D slices of the rescaled isotropic 3D images. The 2D slices includes all XY, XZ and YZ slices ordered randomly by a random prefix in the file name. The 2D slices are saved as TIFF files.
+**Note for training Cellpose:** The best image form for training StarDist and PlantSeg models are the original forms, i.e. the linked dataset is the one that provide the best results. However, to train Cellpose which only takes 2D training data, the images are prepared to be 2D slices of the rescaled isotropic 3D images. The 2D slices includes all XY, XZ and YZ slices ordered randomly by a random prefix in the file name. The 2D slices are saved as TIFF files and are provided along with the 3D images in the same [BioImage Archive S-BIAD1026](https://www.ebi.ac.uk/biostudies/BioImages/studies/S-BIAD1026) repository.
 
 ### Preparing Data for Inference
 
-Both HDF5 files and TIFF files can be directly used for both `run-stardist` and `plant-seg` inference. Go to the respective folders's README.md for more details.
+Both HDF5 files and TIFF files can be directly used for both `run-stardist` and `plant-seg` inference. Go to the respective GoNuclear documentation for more details.
 
 ## Cite
 

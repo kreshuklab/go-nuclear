@@ -1,4 +1,4 @@
-# Plant Nuclei Segmentation Pipelines <!-- omit in toc -->
+# Nuclear Segmentation Pipelines <!-- omit in toc -->
 
 This repository hosts the code and guides for the pipelines used in the paper [_A deep learning-based toolkit for 3D nuclei segmentation and quantitative analysis in cellular and tissue context_](https://doi.org/10.1242/dev.202800). It is structured in to four folders:
 
@@ -54,7 +54,7 @@ _See [Cellpose's README.md](cellpose/README.md) for more details._
 
 ### Training Data
 
-The training data is publicly available on [BioImage Archive](https://www.ebi.ac.uk/biostudies/BioImages/studies/S-BIAD1026).
+The training data is publicly available on [BioImage Archive S-BIAD1026](https://www.ebi.ac.uk/biostudies/BioImages/studies/S-BIAD1026).
 
 An example of the raw image:
 
