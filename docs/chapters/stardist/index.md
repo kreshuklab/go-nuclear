@@ -1,5 +1,7 @@
 # Run Stardist: A Guide and A Pipeline <!-- omit in toc -->
 
+_This documentation page is a copy of the [`run-stardist` README.md file](https://github.com/kreshuklab/go-nuclear/blob/main/stardist/README.md)._
+
 ![version](https://anaconda.org/qin-yu/run-stardist/badges/version.svg)
 ![latest_release_date](https://anaconda.org/qin-yu/run-stardist/badges/latest_release_date.svg)
 ![license](https://anaconda.org/qin-yu/run-stardist/badges/license.svg)
@@ -7,22 +9,9 @@
 
 A complete training and inference pipeline for 3D StarDist with an example on 3D biological (ovules) datasets. Please submit an issue if you encountered errors or if you have any questions or suggestions.
 
-* [Models and Data](#models-and-data)
-  * [Use Pre-trained Model](#use-pre-trained-model)
-  * [Training data statistics and links](#training-data-statistics-and-links)
-* [Installation](#installation)
-  * [Install Miniconda](#install-miniconda)
-  * [Install `run-stardist` using `mamba`](#install-run-stardist-using-mamba)
-* [Usage](#usage)
-  * [Example configuration file for both training and inference](#example-configuration-file-for-both-training-and-inference)
-  * [Training](#training)
-  * [Prediction](#prediction)
-  * [Specifying a Graphic Card (GPU)](#specifying-a-graphic-card-gpu)
-* [Cite](#cite)
-
 ## Models and Data
 
-A 3D nucleus segmentation model is available for download from Bioimage.IO and ready to be used directly for segmenting your nuclei. The model is trained on a 3D confocal ovule dataset from *Arabidopsis thaliana*. The StarDist version v0.8.3 was used for the paper.
+A 3D nucleus segmentation model is available for download from Bioimage.IO and ready to be used directly for segmenting your nuclei. The model is trained on a 3D confocal ovule dataset from _Arabidopsis thaliana_. The StarDist version v0.8.3 was used for the paper.
 
 ### Use Pre-trained Model
 

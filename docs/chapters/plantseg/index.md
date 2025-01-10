@@ -1,14 +1,6 @@
 # Run PlantSeg: A Guide <!-- omit in toc -->
 
-* [Installation](#installation)
-  * [Install Miniconda](#install-miniconda)
-  * [Install `plant-seg` using `mamba`](#install-plant-seg-using-mamba)
-* [Inference](#inference)
-  * [Example configuration file for both training and inference](#example-configuration-file-for-both-training-and-inference)
-  * [Prediction](#prediction)
-  * [Specifying a Graphic Card (GPU)](#specifying-a-graphic-card-gpu)
-* [Cite](#cite)
-* [PlantSeg Version and Code](#plantseg-version-and-code)
+_This documentation page is a copy of the [GoNuclear-PlantSeg README.md file](https://github.com/kreshuklab/go-nuclear/blob/main/plantseg/README.md)._
 
 ## Installation
 
@@ -60,12 +52,12 @@ The original configuration file used for training the final UNet PlantSeg model 
 
 An example config file for segmentation can be found at `plantseg/configs/config_pred_wide_applicability.yaml`. To modify it and use it for your own data, you need to change the `path` parameters:
 
-* `path`: path to the folder containing the images to be segmented or to the image to be segmented
+- `path`: path to the folder containing the images to be segmented or to the image to be segmented
 
 You may also need to change these parameters:
 
-* `preprocessing:factor`: a rescale factor to match the nucleus size of your data to the training data, not necessary but may help in specific cases
-* `cnn_prediction:patch`: patch size should be smaller than the dimension of your image, and smaller than the GPU memory
+- `preprocessing:factor`: a rescale factor to match the nucleus size of your data to the training data, not necessary but may help in specific cases
+- `cnn_prediction:patch`: patch size should be smaller than the dimension of your image, and smaller than the GPU memory
 
 The full configuration file is shown below:
 

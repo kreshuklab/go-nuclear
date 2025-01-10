@@ -1,0 +1,105 @@
+site_name: GoNuclear
+site_url: https://kreshuklab.github.io/go-nuclear/
+site_description: Nuclear Segmentation Guides and Pipelines
+repo_name: kreshuklab/go-nuclear
+repo_url: https://github.com/kreshuklab/go-nuclear
+edit_uri: edit/main/docs/
+copyright: Copyright &copy; 2023 - 2025 Qin Yu
+
+theme:
+  name: material
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+    # Palette toggle for light mode
+    - scheme: default
+      primary: green
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      # primary: teal
+      accent: light-green
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - content.tooltips
+    - content.code.annotate
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.sections
+    - navigation.path
+    - navigation.indexes
+    - navigation.footer
+    - toc.follow
+    - search.suggest
+    - search.share
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/kreshuklab/go-nuclear
+      name: GoNuclear on GitHub
+
+markdown_extensions:
+  - abbr
+  - attr_list
+  - md_in_html
+  - admonition
+  - pymdownx.extra
+  - pymdownx.details
+  - pymdownx.snippets
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.snippets:
+      base_path: docs/snippets
+      check_paths: true
+
+plugins:
+  - search
+  - autorefs
+  - markdown-exec
+  - mkdocstrings:
+      handlers:
+        python:
+          import:
+            - https://docs.python.org/3/objects.inv
+            - https://numpy.org/doc/stable/objects.inv
+          options:
+            heading_level: 3
+            docstring_style: google
+            show_source: true
+            show_signature_annotations: true
+            show_root_heading: true
+            show_root_full_path: true
+            show_bases: true
+            docstring_section_style: list
+  - git-revision-date-localized:
+      enable_creation_date: true
+  - git-committers:
+      repository: kreshuklab/go-nuclear
+      branch: main
+
+nav:
+  - Overview:
+      - index.md
+
+  - PlantSeg:
+      - chapters/plantseg/index.md
+
+  - StarDist:
+      - chapters/stardist/index.md
+
+  - Cellpose:
+      - chapters/cellpose/index.md
+
+  - Evaluation:
+      - chapters/evaluation/index.md

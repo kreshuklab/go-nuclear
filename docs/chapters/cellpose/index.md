@@ -1,18 +1,8 @@
 # Use Cellpose: A Guide <!-- omit in toc -->
 
-This part of the repo concisely shows how to install, train and segment with Cellpose. In other word, it is a record of how Cellpose is used in this paper. Since my experiments show StarDist and PlantSeg have better 3D segmentation performance than Cellpose, this section is complete yet not extensive.
+_This documentation page is a copy of the [GoNuclear-Cellpose README.md file](https://github.com/kreshuklab/go-nuclear/blob/main/cellpose/README.md)._
 
-* [Installation](#installation)
-  * [Install Miniconda](#install-miniconda)
-  * [Install `cellpose` using `pip`](#install-cellpose-using-pip)
-* [Segmentation](#segmentation)
-  * [Data Preparation](#data-preparation)
-  * [Segmentation Command](#segmentation-command)
-* [Training](#training)
-  * [Data Preparation](#data-preparation-1)
-  * [Training Command](#training-command)
-* [Cellpose Version and Code](#cellpose-version-and-code)
-* [Cite](#cite)
+This part of the repo concisely shows how to install, train and segment with Cellpose. In other word, it is a record of how Cellpose is used in this paper. Since my experiments show StarDist and PlantSeg have better 3D segmentation performance than Cellpose, this section is complete yet not extensive.
 
 ## Installation
 
@@ -67,7 +57,7 @@ Cellpose inference only segmenet TIFF images, not HDF5. However, it can take 3D 
 
 There are two ways of segmenting 3D images with Cellpose:
 
-* Segment 3D images slice by slice then stitch 2D segmentation results into 3D segmentation results. With this approach, the images doesn't have to be isotropic, as long as the XY planes have similar properties as the training data.
+- Segment 3D images slice by slice then stitch 2D segmentation results into 3D segmentation results. With this approach, the images doesn't have to be isotropic, as long as the XY planes have similar properties as the training data.
 
     ```bash
     cellpose \
@@ -83,7 +73,7 @@ There are two ways of segmenting 3D images with Cellpose:
         --save_tif
     ```
 
-* Compute spatial flow of 3D images in all dimensions then segment the images in 3D directly. You may choose to rescale the images to be isotropic before segmentation, or specify the anisotropy to let Cellpose deal with the rescaling. Here I show the later.
+- Compute spatial flow of 3D images in all dimensions then segment the images in 3D directly. You may choose to rescale the images to be isotropic before segmentation, or specify the anisotropy to let Cellpose deal with the rescaling. Here I show the later.
 
     ```bash
     cellpose \
