@@ -55,7 +55,7 @@ If your nuclei have irregular shapes, please consider using the PlantSeg pipelin
 
 ### Training Data
 
-The training data is publicly available on Zenodo at `[TODO](to be published after paper submission)`.
+The training data is publicly available on [BioImage Archive](https://www.ebi.ac.uk/biostudies/BioImages/studies/S-BIAD1026).
 
 An example of the raw image:
 
