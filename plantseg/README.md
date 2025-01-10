@@ -1,14 +1,14 @@
 # Run PlantSeg: A Guide <!-- omit in toc -->
 
-- [Installation](#installation)
-  - [Install Miniconda](#install-miniconda)
-  - [Install `plant-seg` using `mamba`](#install-plant-seg-using-mamba)
-- [Inference](#inference)
-  - [Example configuration file for both training and inference](#example-configuration-file-for-both-training-and-inference)
-  - [Prediction](#prediction)
-  - [Specifying a Graphic Card (GPU)](#specifying-a-graphic-card-gpu)
-- [Cite](#cite)
-- [PlantSeg Version and Code](#plantseg-version-and-code)
+* [Installation](#installation)
+  * [Install Miniconda](#install-miniconda)
+  * [Install `plant-seg` using `mamba`](#install-plant-seg-using-mamba)
+* [Inference](#inference)
+  * [Example configuration file for both training and inference](#example-configuration-file-for-both-training-and-inference)
+  * [Prediction](#prediction)
+  * [Specifying a Graphic Card (GPU)](#specifying-a-graphic-card-gpu)
+* [Cite](#cite)
+* [PlantSeg Version and Code](#plantseg-version-and-code)
 
 ## Installation
 

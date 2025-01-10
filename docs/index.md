@@ -1,29 +1,17 @@
 # Plant Nuclei Segmentation Pipelines <!-- omit in toc -->
 
-This repository hosts the code and guides for the pipelines used in the paper [_A deep learning-based toolkit for 3D nuclei segmentation and quantitative analysis in cellular and tissue context_](https://www.biorxiv.org/content/10.1101/2024.02.19.580954v1). It is structured in to four folders:
+This repository hosts the code and guides for the pipelines used in the paper [_A deep learning-based toolkit for 3D nuclei segmentation and quantitative analysis in cellular and tissue context_](https://doi.org/10.1242/dev.202800). It is structured in to four folders:
 
 - **stardist/** contains a 3D StarDist training and inference pipeline, `run-stardist`.
 - **plantseg/** contains configuration files for training and inference with PlantSeg.
 - **cellpose/** contains scripts for training and inference with Cellpose.
 - **evaluation/** contains modules for evaluating the segmentation results.
 
-## Table of Contents <!-- omit in toc -->
-
-- [Tools and Workflows](#tools-and-workflows)
-  - [StarDist](#stardist)
-  - [PlantSeg](#plantseg)
-  - [Cellpose](#cellpose)
-- [Data](#data)
-  - [Training Data](#training-data)
-  - [Preparing Data for Inference](#preparing-data-for-inference)
-- [Cite](#cite)
-
-
 ## Tools and Workflows
 
 ### StarDist
 
-*See [`run-stardist`'s README.md](stardist/README.md) for more details.*
+_See [`run-stardist`'s README.md](stardist/README.md) for more details._
 
 This is one of the most important contribution of this repository. If your nuclei are more or less uniform in shape, please consider using the `run-stardist` pipeline in this repository. It generate separate and round instance segmentation masks for your nuclei images.
 
@@ -35,7 +23,7 @@ This is one of the most important contribution of this repository. If your nucle
 
 ### PlantSeg
 
-*See [PlantSeg's README.md](plantseg/README.md) for more details.*
+_See [PlantSeg's README.md](plantseg/README.md) for more details._
 
 If your nuclei have irregular shapes, please consider using the PlantSeg pipeline. It generates instance masks for your nuclei images regardless of their nucleus size and shape.
 
@@ -47,7 +35,7 @@ If your nuclei have irregular shapes, please consider using the PlantSeg pipelin
 
 ### Cellpose
 
-*See [Cellpose's README.md](cellpose/README.md) for more details.*
+_See [Cellpose's README.md](cellpose/README.md) for more details._
 
 - The guide for running Cellpose inference and training is in the `cellpose/` folder
 
@@ -93,15 +81,13 @@ Both HDF5 files and TIFF files can be directly used for both `run-stardist` and 
 If you find this work useful, please cite our paper and the respective tools' papers:
 
 ```bibtex
-@article {Vijayan2024.02.19.580954,
-  author = {Athul Vijayan and Tejasvinee Atul Mody and Qin Yu and Adrian Wolny and Lorenzo Cerrone and Soeren Strauss and Miltos Tsiantis and Richard S. Smith and Fred Hamprecht and Anna Kreshuk and Kay Schneitz},
-  title = {A deep learning-based toolkit for 3D nuclei segmentation and quantitative analysis in cellular and tissue context},
-  elocation-id = {2024.02.19.580954},
-  year = {2024},
-  doi = {10.1101/2024.02.19.580954},
-  publisher = {Cold Spring Harbor Laboratory},
-  URL = {https://www.biorxiv.org/content/early/2024/02/21/2024.02.19.580954},
-  eprint = {https://www.biorxiv.org/content/early/2024/02/21/2024.02.19.580954.full.pdf},
-  journal = {bioRxiv}
+@article{vijayan2024deep,
+  title={A deep learning-based toolkit for 3D nuclei segmentation and quantitative analysis in cellular and tissue context},
+  author={Vijayan, Athul and Mody, Tejasvinee Atul and Yu, Qin and Wolny, Adrian and Cerrone, Lorenzo and Strauss, Soeren and Tsiantis, Miltos and Smith, Richard S and Hamprecht, Fred A and Kreshuk, Anna and others},
+  journal={Development},
+  volume={151},
+  number={14},
+  year={2024},
+  publisher={The Company of Biologists}
 }
 ```

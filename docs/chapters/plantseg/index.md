@@ -1,15 +1,5 @@
 # Run PlantSeg: A Guide <!-- omit in toc -->
 
-- [Installation](#installation)
-  - [Install Miniconda](#install-miniconda)
-  - [Install `plant-seg` using `mamba`](#install-plant-seg-using-mamba)
-- [Inference](#inference)
-  - [Example configuration file for both training and inference](#example-configuration-file-for-both-training-and-inference)
-  - [Prediction](#prediction)
-  - [Specifying a Graphic Card (GPU)](#specifying-a-graphic-card-gpu)
-- [Cite](#cite)
-- [PlantSeg Version and Code](#plantseg-version-and-code)
-
 ## Installation
 
 It is recommended to install this package with `mamba` (see below). If you don't have `mamba` installed, you can install it with `conda`. We start the guide by installing Mini-`conda`.
@@ -212,16 +202,14 @@ If you have only one graphic card, use `CUDA_VISIBLE_DEVICES=0` to select the fi
 If you find this work useful, please cite both papers:
 
 ```bibtex
-@article {Vijayan2024.02.19.580954,
-  author = {Athul Vijayan and Tejasvinee Atul Mody and Qin Yu and Adrian Wolny and Lorenzo Cerrone and Soeren Strauss and Miltos Tsiantis and Richard S. Smith and Fred Hamprecht and Anna Kreshuk and Kay Schneitz},
-  title = {A deep learning-based toolkit for 3D nuclei segmentation and quantitative analysis in cellular and tissue context},
-  elocation-id = {2024.02.19.580954},
-  year = {2024},
-  doi = {10.1101/2024.02.19.580954},
-  publisher = {Cold Spring Harbor Laboratory},
-  URL = {https://www.biorxiv.org/content/early/2024/02/21/2024.02.19.580954},
-  eprint = {https://www.biorxiv.org/content/early/2024/02/21/2024.02.19.580954.full.pdf},
-  journal = {bioRxiv}
+@article{vijayan2024deep,
+  title={A deep learning-based toolkit for 3D nuclei segmentation and quantitative analysis in cellular and tissue context},
+  author={Vijayan, Athul and Mody, Tejasvinee Atul and Yu, Qin and Wolny, Adrian and Cerrone, Lorenzo and Strauss, Soeren and Tsiantis, Miltos and Smith, Richard S and Hamprecht, Fred A and Kreshuk, Anna and others},
+  journal={Development},
+  volume={151},
+  number={14},
+  year={2024},
+  publisher={The Company of Biologists}
 }
 
 @article{wolny2020accurate,

@@ -7,19 +7,18 @@
 
 A complete training and inference pipeline for 3D StarDist with an example on 3D biological (ovules) datasets. Please submit an issue if you encountered errors or if you have any questions or suggestions.
 
-- [Models and Data](#models-and-data)
-  - [Cite](#cite)
-  - [Use Pre-trained Model](#use-pre-trained-model)
-  - [Training data statistics and links](#training-data-statistics-and-links)
-- [Installation](#installation)
-  - [Install Miniconda](#install-miniconda)
-  - [Install `run-stardist` using `mamba`](#install-run-stardist-using-mamba)
-- [Usage](#usage)
-  - [Example configuration file for both training and inference](#example-configuration-file-for-both-training-and-inference)
-  - [Training](#training)
-  - [Prediction](#prediction)
-  - [Specifying a Graphic Card (GPU)](#specifying-a-graphic-card-gpu)
-
+* [Models and Data](#models-and-data)
+  * [Cite](#cite)
+  * [Use Pre-trained Model](#use-pre-trained-model)
+  * [Training data statistics and links](#training-data-statistics-and-links)
+* [Installation](#installation)
+  * [Install Miniconda](#install-miniconda)
+  * [Install `run-stardist` using `mamba`](#install-run-stardist-using-mamba)
+* [Usage](#usage)
+  * [Example configuration file for both training and inference](#example-configuration-file-for-both-training-and-inference)
+  * [Training](#training)
+  * [Prediction](#prediction)
+  * [Specifying a Graphic Card (GPU)](#specifying-a-graphic-card-gpu)
 
 ## Models and Data
 
@@ -45,7 +44,7 @@ If you find the code/models/datasets useful, please cite our paper:
 
 ### Use Pre-trained Model
 
-Model weights and related files can be found at: https://zenodo.org/doi/10.5281/zenodo.8421755. The programme downloads the model automatically for you to make inference on your images as long as you specify `generic_plant_nuclei_3D` as the `model_name` in the configuration file.
+Model weights and related files can be found at: <https://zenodo.org/doi/10.5281/zenodo.8421755>. The programme downloads the model automatically for you to make inference on your images as long as you specify `generic_plant_nuclei_3D` as the `model_name` in the configuration file.
 
 This is the only 3D StarDist model available on Bioimage Model Zoo at the moment. If you have another model, put its folder in your `PATH_TO_MODEL_DIR` and specify the folder name as `MY_MODEL_NAME` in the configuration file (see below). Then you can run `predict-stardist` to use the model for inference. For more information on inference, see [Prediction](#prediction) section below.
 
@@ -91,6 +90,7 @@ Then install by typing:
 ```bash
 bash ./Miniconda3-latest-Linux-x86_64.sh
 ```
+
 and follow the installation instructions. The Miniconda3-latest-Linux-x86_64.sh file can be safely deleted.
 
 ### Install `run-stardist` using `mamba`
