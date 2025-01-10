@@ -1,6 +1,6 @@
 site_name: GoNuclear
 site_url: https://kreshuklab.github.io/go-nuclear/
-site_description: Nuclear Segmentation Guide and Pipelines
+site_description: Nuclear Segmentation Guides and Pipelines
 repo_name: kreshuklab/go-nuclear
 repo_url: https://github.com/kreshuklab/go-nuclear
 edit_uri: edit/main/docs/
@@ -86,7 +86,7 @@ plugins:
       enable_creation_date: true
   - git-committers:
       repository: kreshuklab/go-nuclear
-      branch: master
+      branch: main
 
 nav:
   - Overview:
@@ -100,3 +100,6 @@ nav:
 
   - Cellpose:
       - chapters/cellpose/index.md
+
+  - Evaluation:
+      - chapters/evaluation/index.md
