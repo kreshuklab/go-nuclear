@@ -41,11 +41,52 @@ _See [GoNuclear Documentation - Cellpose](chapters/cellpose/index.md) for more d
 
 - The guide for running Cellpose inference and training is in the `cellpose/` folder
 
-## Data
+## Data and Models
 
-### Training Data
+### Training Data and Trained Models
 
-The training data is publicly available on [BioImage Archive S-BIAD1026](https://www.ebi.ac.uk/biostudies/BioImages/studies/S-BIAD1026).
+The training data is publicly available on [BioImage Archive S-BIAD1026](https://www.ebi.ac.uk/biostudies/BioImages/studies/S-BIAD1026). I organised them in the following structure:
+
+```bash
+Training data
+├── 2d/
+│   ├── isotropic/
+│   │   ├── gold/
+│   │   └── initial/
+│   └── original/
+│       ├── gold/
+│       └── README.txt
+└── 3d_all_in_one/
+    ├── 1135.h5
+    ├── 1136.h5
+    ├── 1137.h5
+    ├── 1139.h5
+    └── 1170.h5
+
+Models
+├── cellpose/
+│   ├── cyto2_finetune/
+│   │   └── gold/
+│   ├── nuclei_finetune/
+│   │   ├── gold/
+│   │   └── initial/
+│   └── scratch_trained/
+│       └── gold/
+├── plantseg/
+│   └── 3dunet/
+│       ├── gold/
+│       ├── initial/
+│       ├── platinum/
+│       └── train_example.yml
+└── stardist/
+    ├── resnet/
+    │   ├── gold/
+    │   ├── initial/
+    │   └── platinum/
+    ├── train_example.yml
+    └── unet/
+        └── gold/
+```
 
 An example of the raw image:
 

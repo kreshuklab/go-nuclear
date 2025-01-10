@@ -1,5 +1,7 @@
 # Evaluation Module
 
+_This documentation page is a copy of the [GoNuclear-Evaluation README.md file](https://github.com/kreshuklab/go-nuclear/blob/main/evaluation/README.md)._
+
 This module contains the code for evaluating the performance of the trained models. This is an implementation of [the scoring metirc in 2018 Data Science Bowl](https://www.kaggle.com/code/stkbailey/step-by-step-explanation-of-scoring-metric).
 
 ## Cite

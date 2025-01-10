@@ -12,6 +12,7 @@ This part of the repo concisely shows how to install, train and segment with Cel
   * [Data Preparation](#data-preparation-1)
   * [Training Command](#training-command)
 * [Cellpose Version and Code](#cellpose-version-and-code)
+* [Cite](#cite)
 
 ## Installation
 
@@ -56,6 +57,8 @@ If you encounter error or need more explanation, go to [Cellpose's official inst
 
 ## Segmentation
 
+Although the PlantSeg and StarDist models from this study outperform the Cellpose models I trained. One may find the gold models in [BioImage Archive S-BIAD1026](https://www.ebi.ac.uk/biostudies/BioImages/studies/S-BIAD1026), or one of them [`philosophical-panda` at BioImage Model Zoo](https://bioimage.io/#/?tags=qin%20yu&id=philosophical-panda).
+
 ### Data Preparation
 
 Cellpose inference only segmenet TIFF images, not HDF5. However, it can take 3D volumes as input.
@@ -64,7 +67,7 @@ Cellpose inference only segmenet TIFF images, not HDF5. However, it can take 3D 
 
 There are two ways of segmenting 3D images with Cellpose:
 
-- Segment 3D images slice by slice then stitch 2D segmentation results into 3D segmentation results. With this approach, the images doesn't have to be isotropic, as long as the XY planes have similar properties as the training data.
+* Segment 3D images slice by slice then stitch 2D segmentation results into 3D segmentation results. With this approach, the images doesn't have to be isotropic, as long as the XY planes have similar properties as the training data.
 
     ```bash
     cellpose \
@@ -80,7 +83,7 @@ There are two ways of segmenting 3D images with Cellpose:
         --save_tif
     ```
 
-- Compute spatial flow of 3D images in all dimensions then segment the images in 3D directly. You may choose to rescale the images to be isotropic before segmentation, or specify the anisotropy to let Cellpose deal with the rescaling. Here I show the later.
+* Compute spatial flow of 3D images in all dimensions then segment the images in 3D directly. You may choose to rescale the images to be isotropic before segmentation, or specify the anisotropy to let Cellpose deal with the rescaling. Here I show the later.
 
     ```bash
     cellpose \
@@ -120,3 +123,30 @@ cellpose --train --use_gpu \
 ## Cellpose Version and Code
 
 See [Cellpose's GitHub page](https://github.com/MouseLand/cellpose) for the code. Cellpose v2.0.5 was used for training and inference in this paper.
+
+## Cite
+
+If you find the code/models/datasets useful, please cite our paper and Cellpose:
+
+```bibtex
+@article{vijayan2024deep,
+  title={A deep learning-based toolkit for 3D nuclei segmentation and quantitative analysis in cellular and tissue context},
+  author={Vijayan, Athul and Mody, Tejasvinee Atul and Yu, Qin and Wolny, Adrian and Cerrone, Lorenzo and Strauss, Soeren and Tsiantis, Miltos and Smith, Richard S and Hamprecht, Fred A and Kreshuk, Anna and others},
+  journal={Development},
+  volume={151},
+  number={14},
+  year={2024},
+  publisher={The Company of Biologists}
+}
+
+@article{stringer2021cellpose,
+  title={Cellpose: a generalist algorithm for cellular segmentation},
+  author={Stringer, Carsen and Wang, Tim and Michaelos, Michalis and Pachitariu, Marius},
+  journal={Nature methods},
+  volume={18},
+  number={1},
+  pages={100--106},
+  year={2021},
+  publisher={Nature Publishing Group US New York}
+}
+```

@@ -1,5 +1,7 @@
 # Run PlantSeg: A Guide <!-- omit in toc -->
 
+_This documentation page is a copy of the [GoNuclear-PlantSeg README.md file](https://github.com/kreshuklab/go-nuclear/blob/main/plantseg/README.md)._
+
 ## Installation
 
 It is recommended to install this package with `mamba` (see below). If you don't have `mamba` installed, you can install it with `conda`. We start the guide by installing Mini-`conda`.

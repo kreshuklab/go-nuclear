@@ -60,12 +60,12 @@ The original configuration file used for training the final UNet PlantSeg model 
 
 An example config file for segmentation can be found at `plantseg/configs/config_pred_wide_applicability.yaml`. To modify it and use it for your own data, you need to change the `path` parameters:
 
-- `path`: path to the folder containing the images to be segmented or to the image to be segmented
+* `path`: path to the folder containing the images to be segmented or to the image to be segmented
 
 You may also need to change these parameters:
 
-- `preprocessing:factor`: a rescale factor to match the nucleus size of your data to the training data, not necessary but may help in specific cases
-- `cnn_prediction:patch`: patch size should be smaller than the dimension of your image, and smaller than the GPU memory
+* `preprocessing:factor`: a rescale factor to match the nucleus size of your data to the training data, not necessary but may help in specific cases
+* `cnn_prediction:patch`: patch size should be smaller than the dimension of your image, and smaller than the GPU memory
 
 The full configuration file is shown below:
 
@@ -107,7 +107,7 @@ cnn_prediction:
   key: Null
   # channel to use if input image has shape CZYX or CYX, otherwise set to null; null is recommended if the previous steps has state True
   channel: Null
-  # Trained model name, more info on available models and custom models in the README
+  # Trained model name, more info on available models and custom models in PlantSeg documentation
   model_name: 'PlantSeg_3Dnuc_platinum'
   # If a CUDA capable gpu is available and corrected setup use "cuda", if not you can use "cpu" for cpu only inference (slower)
   device: 'cuda'
@@ -212,16 +212,14 @@ If you have only one graphic card, use `CUDA_VISIBLE_DEVICES=0` to select the fi
 If you find this work useful, please cite both papers:
 
 ```bibtex
-@article {Vijayan2024.02.19.580954,
-  author = {Athul Vijayan and Tejasvinee Atul Mody and Qin Yu and Adrian Wolny and Lorenzo Cerrone and Soeren Strauss and Miltos Tsiantis and Richard S. Smith and Fred Hamprecht and Anna Kreshuk and Kay Schneitz},
-  title = {A deep learning-based toolkit for 3D nuclei segmentation and quantitative analysis in cellular and tissue context},
-  elocation-id = {2024.02.19.580954},
-  year = {2024},
-  doi = {10.1101/2024.02.19.580954},
-  publisher = {Cold Spring Harbor Laboratory},
-  URL = {https://www.biorxiv.org/content/early/2024/02/21/2024.02.19.580954},
-  eprint = {https://www.biorxiv.org/content/early/2024/02/21/2024.02.19.580954.full.pdf},
-  journal = {bioRxiv}
+@article{vijayan2024deep,
+  title={A deep learning-based toolkit for 3D nuclei segmentation and quantitative analysis in cellular and tissue context},
+  author={Vijayan, Athul and Mody, Tejasvinee Atul and Yu, Qin and Wolny, Adrian and Cerrone, Lorenzo and Strauss, Soeren and Tsiantis, Miltos and Smith, Richard S and Hamprecht, Fred A and Kreshuk, Anna and others},
+  journal={Development},
+  volume={151},
+  number={14},
+  year={2024},
+  publisher={The Company of Biologists}
 }
 
 @article{wolny2020accurate,

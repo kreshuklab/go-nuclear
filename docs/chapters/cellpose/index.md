@@ -1,5 +1,7 @@
 # Use Cellpose: A Guide <!-- omit in toc -->
 
+_This documentation page is a copy of the [GoNuclear-Cellpose README.md file](https://github.com/kreshuklab/go-nuclear/blob/main/cellpose/README.md)._
+
 This part of the repo concisely shows how to install, train and segment with Cellpose. In other word, it is a record of how Cellpose is used in this paper. Since my experiments show StarDist and PlantSeg have better 3D segmentation performance than Cellpose, this section is complete yet not extensive.
 
 ## Installation
@@ -44,6 +46,8 @@ conda install pytorch==1.12.0 cudatoolkit=11.3 -c pytorch
 If you encounter error or need more explanation, go to [Cellpose's official instruction](https://github.com/MouseLand/cellpose#instructions).
 
 ## Segmentation
+
+Although the PlantSeg and StarDist models from this study outperform the Cellpose models I trained. One may find the gold models in [BioImage Archive S-BIAD1026](https://www.ebi.ac.uk/biostudies/BioImages/studies/S-BIAD1026), or one of them [`philosophical-panda` at BioImage Model Zoo](https://bioimage.io/#/?tags=qin%20yu&id=philosophical-panda).
 
 ### Data Preparation
 
