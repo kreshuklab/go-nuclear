@@ -8,16 +8,16 @@
 A complete training and inference pipeline for 3D StarDist with an example on 3D biological (ovules) datasets. If you encounter any issues or have suggestions, please [submit an issue](https://github.com/kreshuklab/go-nuclear/issues/new).
 
 * [Models and Data](#models-and-data)
-  * [Use Pre-trained Model](#use-pre-trained-model)
-  * [Training Data Statistics and Links](#training-data-statistics-and-links)
+    * [Use Pre-trained Model](#use-pre-trained-model)
+    * [Training Data Statistics and Links](#training-data-statistics-and-links)
 * [Installation](#installation)
-  * [Install Miniconda](#install-miniconda)
-  * [Install `run-stardist` using `mamba`](#install-run-stardist-using-mamba)
+    * [Install Miniconda](#install-miniconda)
+    * [Install `run-stardist` using `mamba`](#install-run-stardist-using-mamba)
 * [Usage](#usage)
-  * [Example Configuration File for Training and Inference](#example-configuration-file-for-training-and-inference)
-  * [Training](#training)
-  * [Prediction](#prediction)
-  * [Specifying a Graphics Card (GPU)](#specifying-a-graphics-card-gpu)
+    * [Example Configuration File for Training and Inference](#example-configuration-file-for-training-and-inference)
+    * [Training](#training)
+    * [Prediction](#prediction)
+    * [Specifying a Graphics Card (GPU)](#specifying-a-graphics-card-gpu)
 * [Cite](#cite)
 
 ## Models and Data

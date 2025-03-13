@@ -1,0 +1,5 @@
+{
+    "markdown.extension.list.indentationSize": "inherit",
+    "editor.detectIndentation": false,
+    "editor.tabSize": 4
+}
