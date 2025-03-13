@@ -7,7 +7,6 @@ private/
 
 ### Development Env ###
 .idea/
-.vscode/
 .execution_logs/
 *.out
 *.err

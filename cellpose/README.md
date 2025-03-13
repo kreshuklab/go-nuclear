@@ -3,14 +3,14 @@
 This part of the repo concisely shows how to install, train and segment with Cellpose. In other word, it is a record of how Cellpose is used in this paper. Since my experiments show StarDist and PlantSeg have better 3D segmentation performance than Cellpose, this section is complete yet not extensive.
 
 * [Installation](#installation)
-  * [Install Miniconda](#install-miniconda)
-  * [Install `cellpose` using `pip`](#install-cellpose-using-pip)
+    * [Install Miniconda](#install-miniconda)
+    * [Install `cellpose` using `pip`](#install-cellpose-using-pip)
 * [Segmentation](#segmentation)
-  * [Data Preparation](#data-preparation)
-  * [Segmentation Command](#segmentation-command)
+    * [Data Preparation](#data-preparation)
+    * [Segmentation Command](#segmentation-command)
 * [Training](#training)
-  * [Data Preparation](#data-preparation-1)
-  * [Training Command](#training-command)
+    * [Data Preparation](#data-preparation-1)
+    * [Training Command](#training-command)
 * [Cellpose Version and Code](#cellpose-version-and-code)
 * [Cite](#cite)
 
