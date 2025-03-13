@@ -7,6 +7,6 @@ dependencies:
   # - tensorflow
   - stardist
   - wandb
-  - pydantic<2
+  - pydantic
   - pip:
       - -e .

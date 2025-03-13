@@ -75,13 +75,13 @@ conda install -c conda-forge mamba
 If you have a nvidia gpu, install `run-stardist` using:
 
 ```bash
-mamba create -n run-stardist -c qin-yu -c conda-forge "python>=3.10" tensorflow stardist wandb "pydantic<2" run-stardist
+mamba create -n run-stardist -c qin-yu -c conda-forge "python>=3.10" tensorflow stardist wandb pydantic run-stardist
 ```
 
 or if you don't have a nvidia gpu, install `run-stardist` using:
 
 ```bash
-mamba create -n run-stardist -c qin-yu -c conda-forge "python>=3.10" tensorflow-cpu stardist wandb "pydantic<2" run-stardist
+mamba create -n run-stardist -c qin-yu -c conda-forge "python>=3.10" tensorflow-cpu stardist wandb pydantic run-stardist
 ```
 
 ## Usage
