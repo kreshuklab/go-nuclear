@@ -1,6 +1,6 @@
 package:
   name: 'run-stardist'
-  version: '0.0.3'
+  version: '0.0.4'
 
 source:
   path: ..
@@ -22,7 +22,7 @@ requirements:
     # - tensorflow
     - stardist
     - wandb
-    - pydantic<2 # v2 not compatible at all
+    - pydantic
 
 about:
   home: https://github.com/kreshuklab/go-nuclear

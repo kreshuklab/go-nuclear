@@ -8,5 +8,5 @@ dependencies:
   - tensorflow
   - stardist
   - wandb
-  - pydantic<2
+  - pydantic
   - run-stardist
