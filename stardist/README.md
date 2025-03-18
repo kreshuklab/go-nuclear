@@ -18,6 +18,7 @@ A complete training and inference pipeline for 3D StarDist with an example on 3D
     * [Training](#training)
     * [Prediction](#prediction)
     * [Specifying a Graphics Card (GPU)](#specifying-a-graphics-card-gpu)
+    * [Memory Profiling](#memory-profiling)
 * [Cite](#cite)
 
 ## Models and Data
@@ -56,9 +57,10 @@ original_median_extents = {  # z, y, x
 
 ## Installation
 
-It is recommended to install this package with `mamba`. If you don't have `mamba`, install it via `conda`. We start by installing Miniconda.
+It is recommended to install this package with `mamba`. If you don't have `mamba`, install it via `conda` or refer to [the official installation guide](https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html). We start by installing Miniconda.
 
-**Note for Windows users:** This pipeline is designed for Linux and MacOS. TensorFlow has no Conda build for Windows. If using Windows, install TensorFlow from the official website and use `mamba` to install the other dependencies.
+- **Memory requirement:** Memory profiling shows that running the prediction on one 3D volume 1135 requires 24.0 GB of RAM, and running on all five volumes of training data requires 26.9 GB of RAM. I recommend to use a machine with 32 GB of RAM or more.
+- **For Windows users:** TensorFlow has no Conda build for Windows. If using Windows, install TensorFlow from its official website and use `mamba` to install the other dependencies (without `tensorflow`).
 
 ### Install Miniconda
 
@@ -191,6 +193,19 @@ CUDA_VISIBLE_DEVICES=7 predict-stardist --config CONFIG_PATH
 ```
 
 If you have only one graphic card, use `CUDA_VISIBLE_DEVICES=0` to select the first card (No. 0).
+
+### Memory Profiling
+
+To run the code on 5 training volumes, the peak memory usage is 26.9 GiB:
+
+```python
+Command line: memray run predict.py --config /yu/go-nuclear/stardist/configs/final_resnet_model_config.yml
+Duration: 0:46:31.577000
+Total number of allocations: 1735922785
+Total number of frames seen: 24615
+Peak memory usage: 26.9 GiB
+Python allocator: pymalloc
+```
 
 ## Cite
 
