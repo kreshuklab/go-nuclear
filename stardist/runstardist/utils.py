@@ -1,16 +1,16 @@
-""" Utility functions for StarDist pipeline. """
+"""Utility functions for StarDist pipeline."""
 
 import argparse
+import json
 import logging
-import requests
 import os
 import platform
 from pathlib import Path
-from typing import List, Tuple, Union
+from typing import List, Union
 
-import json
-import yaml
 import numpy as np
+import requests
+import yaml
 
 from runstardist import path_dir_models, repo_global_path
 from runstardist.dataio.hdf5 import load_h5
@@ -173,7 +173,9 @@ def load_dataset(filepath, dset_format=None, dset_name=None):
     ext = Path(filepath).suffix[1:].lower()
     if dset_format is not None:
         if ext not in _identify_format(dset_format):
-            raise ValueError(f"File extension {ext} does not match the format {dset_format} specified in the config file.")
+            raise ValueError(
+                f"File extension {ext} does not match the format {dset_format} specified in the config file."
+            )
 
     # load dataset according to file extension
     if ext in EXT_HDF5:
@@ -221,7 +223,7 @@ def check_models(model_name: str, update_files: bool = False, config_only: bool 
         logger.info(f"Model {model_name} already downloaded.")
         return True
     else:
-        path_model.mkdir(exist_ok=False)
+        path_model.mkdir(exist_ok=False, parents=True)
 
     # download model
     logger.info(f"Downloading model {model_name}.")
