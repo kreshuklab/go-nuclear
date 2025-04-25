@@ -4,6 +4,7 @@ import argparse
 import logging
 import requests
 import os
+import platform
 from pathlib import Path
 from typing import List, Tuple, Union
 
@@ -23,9 +24,12 @@ logger = logging.getLogger(__name__)
 
 def log_gpu_info():
     """Print environment/GPU info to logger"""
-
-    logger.info(f"Using GPU:{os.environ['CUDA_VISIBLE_DEVICES']} on {os.uname().nodename}")
-    logger.info(f"Using CONDA environment '{os.environ['CONDA_DEFAULT_ENV']}' at {os.environ['CONDA_PREFIX']}")
+    gpu = os.environ.get("CUDA_VISIBLE_DEVICES", "not set")
+    node = platform.node()
+    env = os.environ.get("CONDA_DEFAULT_ENV", "not set")
+    prefix = os.environ.get("CONDA_PREFIX", "not set")
+    logger.info(f"Using GPU: {gpu} on {node}")
+    logger.info(f"Using CONDA environment '{env}' at {prefix}")
 
 
 def dir_path(path):
