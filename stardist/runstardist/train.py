@@ -4,7 +4,6 @@ import sys
 from pprint import pformat
 
 import numpy as np
-import tensorflow as tf
 import wandb
 from csbdeep.utils import normalize
 from skimage.transform import rescale
@@ -16,9 +15,6 @@ from runstardist.augment import augmenter3d_anisotropic, augmenter3d_isotropic
 from runstardist.config import ConfigConfig3D, ConfigTrain
 
 logger = logging.getLogger(__name__)
-
-gpus = tf.config.experimental.list_physical_devices('GPU')
-tf.config.experimental.set_memory_growth(gpus[0], True)
 
 
 def configure_model(config_config3d: ConfigConfig3D, anisotropy):
@@ -113,8 +109,11 @@ def load_training_data(paths_dataset_train, paths_dataset_val, raw_name, label_n
 
 def create_model(model_dir, model_name, config3d, extents):
     model = StarDist3D(config=config3d, name=model_name, basedir=model_dir)
-    n_trainable = utils.get_model_parameters(model)
-    logger.info(f"In this StarDist3D model, there are {n_trainable} trainable parameters.")
+    try:
+        n_trainable = utils.get_model_parameters(model)
+        logger.info(f"In this StarDist3D model, there are {n_trainable} trainable parameters.")
+    except Exception as e:
+        logger.error(f"Error while getting model parameters: {e}")
 
     # Check if the median object size is within the field of view of the neural network
     logger.info("Checking field of view (FoV)")
