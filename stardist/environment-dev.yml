@@ -1,12 +1,13 @@
 name: run-stardist-dev
 channels:
   - conda-forge
-  - default
 dependencies:
   - python>=3.10 # for `|` in pydantic
-  # - tensorflow
+  - tensorflow
   - stardist
   - wandb
   - pydantic
+  - pytest
+  - pyyaml
   - pip:
       - -e .

@@ -1,0 +1,31 @@
+name: Build and Test Package
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        # os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Miniconda with dev env
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          environment-file: stardist/environment-dev.yml
+          activate-environment: run-stardist-dev
+          auto-update-conda: true
+
+      - name: Run integration test
+        shell: bash -el {0}
+        run: |
+          conda activate run-stardist-dev
+          pytest stardist/tests/test_integration.py -q

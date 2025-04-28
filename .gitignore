@@ -4,6 +4,7 @@
 # Files that might contain sensitive information
 private/
 *.h5
+!stardist/tests/data/*.h5
 
 ### Development Env ###
 .idea/
