@@ -3,9 +3,9 @@ import logging
 from pathlib import Path
 from pprint import pformat
 
-from stardist.models import StarDist2D, StarDist3D
-from skimage.transform import rescale, resize
 from csbdeep.utils import normalize
+from skimage.transform import rescale, resize
+from stardist.models import StarDist2D, StarDist3D
 
 from runstardist import utils
 from runstardist.config import ConfigPred
@@ -34,7 +34,7 @@ def load_dataset(filepath, format=None, name=None, **kwargs):
 
 
 def save_image(dset_format, output_dir, suffix, filepath, image, output_dtype, voxel_size, voxel_size_unit='um'):
-    """Save prediction to file in the specified format. Still save to TIFF if an unsuppported format is used."""
+    """Save prediction to file in the specified format. Still save to TIFF if an unsupported format is used."""
     output_dir = Path(output_dir)
     filepath = Path(filepath)
 
@@ -69,9 +69,13 @@ def predict(config_data, model, filepath, image, voxel_size, original_shape, vox
     # Resize back to original shape if necessary:
     if config_data.resize_to_original and segmentation.shape != original_shape:
         logger.info(f"Resizing segmentation from shape {segmentation.shape} to {original_shape}")
-        segmentation = resize(segmentation, original_shape, order=0, preserve_range=True, anti_aliasing=False).astype(segmentation.dtype)
+        segmentation = resize(segmentation, original_shape, order=0, preserve_range=True, anti_aliasing=False).astype(
+            segmentation.dtype
+        )
         if config_data.save_probability_map:
-            image_prob = resize(image_prob, original_shape, order=1, preserve_range=True, anti_aliasing=False).astype(image_prob.dtype)
+            image_prob = resize(image_prob, original_shape, order=1, preserve_range=True, anti_aliasing=False).astype(
+                image_prob.dtype
+            )
 
     save_image(
         config_data.format,

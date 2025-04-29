@@ -1,31 +1,36 @@
 import argparse
 import logging
+import sys
 from pprint import pformat
 
 import numpy as np
-import tensorflow as tf
-from stardist import calculate_extents, Rays_GoldenSpiral
-from stardist.models import Config3D, StarDist3D
+import wandb
 from csbdeep.utils import normalize
 from skimage.transform import rescale
-import wandb
+from stardist import Rays_GoldenSpiral, calculate_extents
+from stardist.models import Config3D, StarDist3D
 
 from runstardist import utils
-from config import ConfigTrain, ConfigConfig3D
-from augment import augmenter3d_anisotropic, augmenter3d_isotropic
+from runstardist.augment import augmenter3d_anisotropic, augmenter3d_isotropic
+from runstardist.config import ConfigConfig3D, ConfigTrain
 
 logger = logging.getLogger(__name__)
 
-gpus = tf.config.experimental.list_physical_devices('GPU')
-tf.config.experimental.set_memory_growth(gpus[0], True)
-
 
 def configure_model(config_config3d: ConfigConfig3D, anisotropy):
-    logger.info(f"Predict on sub-sampled grid for increased efficiency and larger field of view: {config_config3d.grid}")
-    logger.info(f"At the mean time, {tuple(1 if a > 1.5 else 2 for a in anisotropy)} is the recommended grid")  # Not optimal, better let user input
-    logger.info(f"{'NOT ' if not config_config3d.use_gpu else ''}Using OpenCL for training data generator (requires 'gputools')")
+    logger.info(
+        f"Predict on sub-sampled grid for increased efficiency and larger field of view: {config_config3d.grid}"
+    )
+    logger.info(
+        f"At the mean time, {tuple(1 if a > 1.5 else 2 for a in anisotropy)} is the recommended grid"
+    )  # Not optimal, better let user input
+    logger.info(
+        f"{'NOT ' if not config_config3d.use_gpu else ''}Using OpenCL for training data generator (requires 'gputools')"
+    )
 
-    rays = Rays_GoldenSpiral(config_config3d.n_rays, anisotropy=anisotropy)  # Rays on a Fibonacci lattice adjusted for anisotropy
+    rays = Rays_GoldenSpiral(
+        config_config3d.n_rays, anisotropy=anisotropy
+    )  # Rays on a Fibonacci lattice adjusted for anisotropy
     config3d = Config3D(
         rays=rays,
         anisotropy=anisotropy,
@@ -59,9 +64,15 @@ def _load_training_data(list_path_raw, list_path_lab, name_raw=None, name_lab=No
             raise IndexError(f"'{name_raw}' has shape {image_raw.shape} but '{name_lab}' has shape {image_lab.shape}")
         # if two voxel size array are not the same, raise error
         if any(voxel_size_raw != voxel_size_lab):
-            raise IndexError(f"'{name_raw}' has voxel size {voxel_size_raw} but '{name_lab}' has voxel size {voxel_size_lab}")
-        logger.info(f"Loaded raw: shape {image_raw.shape}, dtype {image_raw.dtype}, and range {image_raw.min()} to {image_raw.max()}")
-        logger.info(f"Loaded lab: shape {image_lab.shape}, dtype {image_lab.dtype}, and range {image_lab.min()} to {image_lab.max()}")
+            raise IndexError(
+                f"'{name_raw}' has voxel size {voxel_size_raw} but '{name_lab}' has voxel size {voxel_size_lab}"
+            )
+        logger.info(
+            f"Loaded raw: shape {image_raw.shape}, dtype {image_raw.dtype}, and range {image_raw.min()} to {image_raw.max()}"
+        )
+        logger.info(
+            f"Loaded lab: shape {image_lab.shape}, dtype {image_lab.dtype}, and range {image_lab.min()} to {image_lab.max()}"
+        )
 
         get_extent_and_anisotropy(image_lab)
 
@@ -85,7 +96,9 @@ def load_training_data(paths_dataset_train, paths_dataset_val, raw_name, label_n
         raise ValueError("Check your path for validation dataset, no dataset found.")
 
     X, Y = _load_training_data(paths_file_dataset_train, paths_file_dataset_train, raw_name, label_name, rescale_factor)
-    X_val, Y_val = _load_training_data(paths_file_dataset_val, paths_file_dataset_val, raw_name, label_name, rescale_factor)
+    X_val, Y_val = _load_training_data(
+        paths_file_dataset_val, paths_file_dataset_val, raw_name, label_name, rescale_factor
+    )
     if len(X) < 1:
         raise ValueError("Not enough training data.")
     if len(X_val) < 1:
@@ -96,8 +109,11 @@ def load_training_data(paths_dataset_train, paths_dataset_val, raw_name, label_n
 
 def create_model(model_dir, model_name, config3d, extents):
     model = StarDist3D(config=config3d, name=model_name, basedir=model_dir)
-    n_trainable = utils.get_model_parameters(model)
-    logger.info(f"In this StarDist3D model, there are {n_trainable} trainable parameters.")
+    try:
+        n_trainable = utils.get_model_parameters(model)
+        logger.info(f"In this StarDist3D model, there are {n_trainable} trainable parameters.")
+    except Exception as e:
+        logger.error(f"Error while getting model parameters: {e}")
 
     # Check if the median object size is within the field of view of the neural network
     logger.info("Checking field of view (FoV)")
@@ -183,7 +199,7 @@ def main():
     # Train:
     if args.dry_run:
         logger.info("Dry run, exiting...")
-        exit()
+        sys.exit(0)
     logger.info("TRAIN STARTING!")
     model.train(X, Y, validation_data=(X_val, Y_val), augmenter=augmenter)
     logger.info("TRAIN SUCCESS!")

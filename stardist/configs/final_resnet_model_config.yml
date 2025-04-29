@@ -42,7 +42,7 @@ stardist:
     grid: [2, 4, 4]
     use_gpu: False
     n_channel_in: 1
-    patch_size: [96, 96, 96] # multiple of 16 prefered
+    patch_size: [96, 96, 96] # multiple of 16 preferred
     train_batch_size: 8
     train_n_val_patches: 16
     steps_per_epoch: 400
