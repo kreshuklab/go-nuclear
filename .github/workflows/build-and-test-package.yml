@@ -19,9 +19,11 @@ jobs:
       - name: Set up Miniconda
         uses: conda-incubator/setup-miniconda@v2
         with:
+          miniconda-version: "latest"
           environment-file: stardist/environment-dev.yml
           activate-environment: run-stardist-dev
           auto-update-conda: true
+          use-mamba: false
 
       - name: Run integration test (via conda run)
         run: conda run -n run-stardist-dev pytest -s stardist/tests/test_integration.py
