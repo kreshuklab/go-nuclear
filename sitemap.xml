@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://kreshuklab.github.io/go-nuclear/</loc>
+         <lastmod>2025-06-26</lastmod>
+    </url>
+    <url>
+         <loc>https://kreshuklab.github.io/go-nuclear/chapters/cellpose/</loc>
+         <lastmod>2025-06-26</lastmod>
+    </url>
+    <url>
+         <loc>https://kreshuklab.github.io/go-nuclear/chapters/evaluation/</loc>
+         <lastmod>2025-06-26</lastmod>
+    </url>
+    <url>
+         <loc>https://kreshuklab.github.io/go-nuclear/chapters/plantseg/</loc>
+         <lastmod>2025-06-26</lastmod>
+    </url>
+    <url>
+         <loc>https://kreshuklab.github.io/go-nuclear/chapters/stardist/</loc>
+         <lastmod>2025-06-26</lastmod>
+    </url>
+</urlset>
