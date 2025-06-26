@@ -9,7 +9,7 @@ jobs:
   test:
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        os: [ubuntu-latest, macos-latest]
     runs-on: ${{ matrix.os }}
 
     steps:
@@ -22,17 +22,6 @@ jobs:
           environment-file: stardist/environment-dev.yml
           activate-environment: run-stardist-dev
           auto-update-conda: true
-
-      - name: Remove duplicate OpenMP runtime on Windows
-        if: runner.os == 'Windows'
-        shell: pwsh
-        run: |
-          # This file is where Intel-MKL puts its OpenMP runtime.
-          # Deleting it here leaves only TensorFlow’s copy, avoiding the dup‐DLL error.
-          $dll = Join-Path $env:CONDA_PREFIX 'Library\bin\libiomp5md.dll'
-          if (Test-Path $dll) {
-            Remove-Item $dll -Force
-          }
 
       - name: Run integration test (via conda run)
         run: conda run -n run-stardist-dev pytest -s stardist/tests/test_integration.py
