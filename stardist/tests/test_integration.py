@@ -63,6 +63,7 @@ def test_train_then_predict(tmp_path):
     env = os.environ.copy()
     env["KMP_DUPLICATE_LIB_OK"] = "TRUE"
     env["CUDA_VISIBLE_DEVICES"] = ""
+    env["TF_ENABLE_ONEDNN_OPTS"] = "0"
 
     # 1) Train the model (1 epoch, 1 step)
     run_entry("train-stardist", cfg, env)

@@ -192,7 +192,9 @@ def get_volume(image, name=None):
         return image
 
 
-def compare_image_pairs(list_segmentation, list_groundtruth, method='ap', name_segmentation=None, name_groundtruth=None, **kwargs):
+def compare_image_pairs(
+    list_segmentation, list_groundtruth, method='ap', name_segmentation=None, name_groundtruth=None, **kwargs
+):
     if len(list_segmentation) != len(list_groundtruth):
         raise ValueError("Segmentation and ground truth must have the same length.")
     list_scores, list_iou_matrix = [], []
@@ -210,7 +212,9 @@ def apply_compare_image_pair(segmentation_groundtruth_pair):
     return compare_image_pair(segmentation, groundtruth, method='ap')
 
 
-def concurrent_basic_compare_image_pairs(list_segmentation, list_groundtruth, method='ap', name_segmentation=None, name_groundtruth=None):
+def concurrent_basic_compare_image_pairs(
+    list_segmentation, list_groundtruth, method='ap', name_segmentation=None, name_groundtruth=None
+):
     if len(list_segmentation) != len(list_groundtruth):
         raise ValueError("Segmentation and ground truth must have the same length.")
     list_scores, list_iou_matrix = [], []

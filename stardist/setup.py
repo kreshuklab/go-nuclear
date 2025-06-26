@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 exec(open('runstardist/__version__.py', encoding='utf-8').read())  # pylint: disable=exec-used
 
 setup(
-    name='run-stardist',  # Replace with your own username
+    name='run-stardist',
     version=__version__,  # pylint: disable=undefined-variable
     author='Qin Yu',
     author_email='qin.yu@embl.de',
