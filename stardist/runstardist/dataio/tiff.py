@@ -1,4 +1,4 @@
-""" TIFF IO functions adapted from PlantSeg
+"""TIFF IO functions adapted from PlantSeg
 
 https://github.com/hci-unihd/plant-seg/edit/master/plantseg/io/tiff.py
 """

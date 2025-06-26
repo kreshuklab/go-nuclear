@@ -69,7 +69,9 @@ class ConfigPredData(BaseModel):
     @validator('target_voxel_size')
     def target_voxel_size_is_valid(cls, v):  # pylint: disable=no-self-argument,no-self-use
         if v is not None:
-            raise NotImplementedError("Please find a `rescale_factor` manually to rescale your data because only nucleus size in absolute pixel matters. Matching voxel size may help PlantSeg but not StarDist.")
+            raise NotImplementedError(
+                "Please find a `rescale_factor` manually to rescale your data because only nucleus size in absolute pixel matters. Matching voxel size may help PlantSeg but not StarDist."
+            )
 
 
 class ConfigConfig3D(BaseModel):
@@ -136,7 +138,9 @@ class ConfigPredStarDist3D(BaseModel):
             elif check_models(v, update_files=False, config_only=False):
                 logger.warning(f"Model is in {path_dir_models}")
             else:
-                raise NotADirectoryError(f"Model directory {v} does not exist, encounterd error when downloading model.")
+                raise NotADirectoryError(
+                    f"Model directory {v} does not exist, encounterd error when downloading model."
+                )
         elif not (values['model_dir'] / v).is_dir():
             raise NotADirectoryError(f"Model {v} does not exist.")
         return v

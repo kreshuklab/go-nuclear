@@ -1,4 +1,4 @@
-""" HDF5 IO functions adapted from PlantSeg
+"""HDF5 IO functions adapted from PlantSeg
 
 https://github.com/hci-unihd/plant-seg/blob/master/plantseg/io/h5.py
 """
