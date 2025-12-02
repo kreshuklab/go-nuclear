@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - qy/docs-refactor
+      - qy/docs-readme
 
 permissions:
   contents: write
