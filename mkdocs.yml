@@ -68,11 +68,9 @@ plugins:
   - autorefs
   - markdown-exec
   - mkdocstrings:
+      default_handler: python
       handlers:
         python:
-          import:
-            - https://docs.python.org/3/objects.inv
-            - https://numpy.org/doc/stable/objects.inv
           options:
             heading_level: 3
             docstring_style: google
