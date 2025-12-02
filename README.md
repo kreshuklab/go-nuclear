@@ -2,18 +2,27 @@
 
 ![stardist_raw_and_segmentation](https://zenodo.org/records/8432366/files/stardist_raw_and_segmentation.jpg)
 
-The GoNuclear repository hosts the code and guides for the pipelines used in the paper [_A deep learning-based toolkit for 3D nuclei segmentation and quantitative analysis in cellular and tissue context_](https://doi.org/10.1242/dev.202800). It is structured in to four folders:
+The GoNuclear repository hosts the code and guides for the pipelines used in the paper [_A deep learning-based toolkit for 3D nuclei segmentation and quantitative analysis in cellular and tissue context_](https://doi.org/10.1242/dev.202800). It is structured into four folders:
 
 - **stardist/** contains a 3D StarDist training and inference pipeline, `run-stardist`.
+  - The StarDist model is automatically downloaded and can be used directly by this package.
 - **plantseg/** contains configuration files for training and inference with PlantSeg.
+  - The PlantSeg model is included in the latest version of PlantSeg.
 - **cellpose/** contains scripts for training and inference with Cellpose.
-- **evaluation/** contains modules for evaluating the segmentation results.
+  - The Cellpose model can be directly added to the Cellpose GUI or used via the command line.
+- **evaluation/** contains modules for evaluating segmentation results.
 
-and are described in [**GoNuclear documentation** :book:](https://kreshuklab.github.io/go-nuclear/).
+These are described in detail in the [**GoNuclear documentation** :book:](https://kreshuklab.github.io/go-nuclear/).
 
 ## Data and Models
 
-Please go to [BioImage Archive S-BIAD1026](https://www.ebi.ac.uk/biostudies/BioImages/studies/S-BIAD1026) for the training data and models. I organised them in the following structure:
+The median size of nuclei in the training data is `[16, 32, 32]` in `ZYX` order. The manuscript and documentation provide guidance on how to best segment your data with each pipeline. All three final models are available on BioImage Model Zoo:
+
+- [StarDist model `modest-octopus`](https://bioimage.io/#/artifacts/modest-octopus)
+- [PlantSeg model `efficient-chipmunk`](https://bioimage.io/#/artifacts/efficient-chipmunk)
+- [Cellpose model `philosophical-panda`](https://bioimage.io/#/artifacts/philosophical-panda)
+
+All training data and models are available on [BioImage Archive S-BIAD1026](https://www.ebi.ac.uk/biostudies/BioImages/studies/S-BIAD1026), organised in the following structure:
 
 ```bash
 Training data
